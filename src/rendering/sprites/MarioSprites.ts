@@ -186,79 +186,74 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
     '.BBB.RRRR.BBB...',
   ], smColors));
 
-  // ====== BIG MARIO (16x32) - properly proportioned with feet at canvas bottom ======
+  // ====== BIG MARIO (16x32) - properly proportioned ======
 
-  // Common upper body for standing/walking poses (rows 0-17)
+  // Common upper body for standing/walking poses (rows 0-20)
+  // Hat starts at row 3 (not 4) and body extends to row 20 for better proportions
   const bigUpperBody = [
     '................', // 0
     '................', // 1
     '................', // 2
-    '................', // 3
-    '......RRRRR.....', // 4 hat
-    '.....RRRRRRRRR..', // 5 hat
-    '.....BBBSSBS....', // 6 face
-    '....BSBSSSBS.S..', // 7
-    '....BSBBSSSBSSS.', // 8
-    '....BBSSSSBBBB..', // 9
-    '......SSSSSSSS..', // 10 chin
-    '....RRRRSRRR....', // 11 shirt
-    '...RRRRRRSRRRRR.', // 12 shirt+arms
-    '..SSRRRRSRRRSSS.', // 13
-    '..SSSRRRRRRRSSS.', // 14
-    '..SS.RRRRRR.SS..', // 15 belt
-    '.....RRRRRR.....', // 16 overalls
-    '....RRRRRRRR....', // 17 overalls
+    '......RRRRR.....', // 3  hat
+    '.....RRRRRRRRR..', // 4  hat brim
+    '.....BBBSSBS....', // 5  hair
+    '....BSBSSSBS.S..', // 6  eyes
+    '....BSBBSSSBSSS.', // 7  nose
+    '....BBSSSSBBBB..', // 8  face
+    '......SSSSSSSS..', // 9  chin
+    '....RRRRSRRR....', // 10 shirt
+    '...RRRRRRSRRRRR.', // 11 shirt+arms
+    '..SSRRRRSRRRSSS.', // 12 hands
+    '..SSSRRRRRRRSSS.', // 13 body
+    '..SS.RRRRRR.SS..', // 14 belt
+    '.....RRRRRR.....', // 15 overalls
+    '....RRRRRRRR....', // 16 overalls
+    '...RRRRRRRRRR...', // 17 overalls
+    '...RRRRRRRRRR...', // 18 overalls
+    '...RRRRRRRRRR...', // 19 overalls lower
+    '...RRRRRRRRRR...', // 20 overalls bottom
   ];
 
   const bigStand = createSprite(16, 32, [
     ...bigUpperBody,
-    '...RRRRRRRRRR...', // 18 thighs
-    '...RRRR..RRRR...', // 19 leg split
-    '...RRR....RRR...', // 20
-    '...RRR....RRR...', // 21
-    '...RRR....RRR...', // 22
-    '....RR....RR....', // 23
-    '....RR....RR....', // 24
-    '....RR....RR....', // 25
-    '....RR....RR....', // 26
-    '....RR....RR....', // 27
-    '....RR....RR....', // 28
+    '...RRRR..RRRR...', // 21 leg split
+    '...RRR....RRR...', // 22 upper legs
+    '...RRR....RRR...', // 23 legs
+    '...RRR....RRR...', // 24 legs
+    '....RR....RR....', // 25 shins
+    '....RR....RR....', // 26 shins
+    '....RR....RR....', // 27 shins
+    '....RR....RR....', // 28 ankles
     '...BBB...BBB....', // 29 shoes
-    '..BBBB...BBBB...', // 30
-    '..BBB.....BBB...', // 31
+    '..BBBB...BBBB...', // 30 shoes
+    '..BBB.....BBB...', // 31 shoes
   ], bmColors);
   sprites.set('big_stand_right', bigStand);
   sprites.set('big_stand_left', flipHorizontal(bigStand));
 
   const bigWalk1 = createSprite(16, 32, [
     ...bigUpperBody,
-    '...RRRRRRRRRR...', // 18
-    '...RRRR..RRRR...', // 19
-    '..RRRR....RRRR..', // 20 wide stride
-    '..RRR......RRR..', // 21
-    '..RRR......RRR..', // 22
+    '...RRRR..RRRR...', // 21 leg split
+    '..RRRR....RRRR..', // 22 wide stride
     '..RRR......RRR..', // 23
-    '...RR......RR...', // 24
-    '...RR......RR...', // 25
+    '..RRR......RRR..', // 24
+    '..RRR......RRR..', // 25
     '...RR......RR...', // 26
     '...RR......RR...', // 27
     '...RR......RR...', // 28
-    '..BBB.....BBB...', // 29
-    '.BBBB.....BBBB..', // 30
-    '.BBB.......BBB..', // 31
+    '..BBB.....BBB...', // 29 shoes
+    '.BBBB.....BBBB..', // 30 shoes
+    '.BBB.......BBB..', // 31 shoes
   ], bmColors);
   sprites.set('big_walk1_right', bigWalk1);
   sprites.set('big_walk1_left', flipHorizontal(bigWalk1));
 
   const bigWalk2 = createSprite(16, 32, [
     ...bigUpperBody,
-    '...RRRRRRRRRR...', // 18
-    '....RRRRRRRR....', // 19 narrowing
-    '.....RRRRRR.....', // 20
-    '.....RRRRRR.....', // 21
-    '.....RR..RR.....', // 22 legs together
-    '.....RR..RR.....', // 23
-    '.....RR..RR.....', // 24
+    '...RRRRRRRRRR...', // 21
+    '....RRRRRRRR....', // 22 narrowing
+    '.....RRRRRR.....', // 23
+    '.....RR..RR.....', // 24 legs together
     '.....RR..RR.....', // 25
     '.....RR..RR.....', // 26
     '.....RR..RR.....', // 27
@@ -272,16 +267,13 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
 
   const bigWalk3 = createSprite(16, 32, [
     ...bigUpperBody,
-    '...RRRRRRRRRR...', // 18
-    '...RRRR..RRRR...', // 19
-    '..RRRR...RRRR...', // 20 offset stride
-    '..RRR.....RRR...', // 21
-    '..RRR.....RRR...', // 22
+    '...RRRR..RRRR...', // 21
+    '..RRRR...RRRR...', // 22 offset stride
     '..RRR.....RRR...', // 23
-    '..RR.......RR...', // 24
-    '..RR.......RR...', // 25
-    '..RR......RR....', // 26
-    '..RR......RR....', // 27
+    '..RRR.....RRR...', // 24
+    '..RRR.....RRR...', // 25
+    '..RR.......RR...', // 26
+    '..RR.......RR...', // 27
     '..RR......RR....', // 28
     '.BBB.....BBB....', // 29
     'BBBB....BBBB....', // 30
@@ -294,29 +286,29 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
     '................', // 0
     '................', // 1
     '................', // 2
-    '................', // 3
-    '......RRRRR.....', // 4 hat
-    '.....RRRRRRRRR..', // 5 hat
-    '.....BBBSSBS....', // 6 face
-    '....BSBSSSBS.S..', // 7
-    '....BSBBSSSBSSS.', // 8
-    '....BBSSSSBBBB..', // 9
-    '....SSRRSSSRRR..', // 10 arm up
-    '...RRRSRRRRRRBB.', // 11
-    '..RRRRSSSRRRRSB.', // 12
-    '..RRRSSSSSSRRBB.', // 13
-    '..RR.SSSSS..B...', // 14
-    '.......RRRR.....', // 15
+    '......RRRRR.....', // 3  hat
+    '.....RRRRRRRRR..', // 4  hat brim
+    '.....BBBSSBS....', // 5  hair
+    '....BSBSSSBS.S..', // 6  eyes
+    '....BSBBSSSBSSS.', // 7  nose
+    '....BBSSSSBBBB..', // 8  face
+    '....SSRRSSSRRR..', // 9  arm up
+    '...RRRSRRRRRRBB.', // 10
+    '..RRRRSSSRRRRSB.', // 11
+    '..RRRSSSSSSRRBB.', // 12
+    '..RR.SSSSS..B...', // 13
+    '.......RRRR.....', // 14
+    '.....RRRRRR.....', // 15
     '....RRRRRRRR....', // 16
     '...RRRRRRRRRR...', // 17
-    '...RRRR..RRRR...', // 18
-    '..RRRR....RRRR..', // 19
-    '..RRR......RRR..', // 20
-    '..RRR......RRR..', // 21
-    '..RRR......RRR..', // 22
-    '...RR......RR...', // 23
-    '...RR......RR...', // 24
-    '...RR......RR...', // 25
+    '...RRRRRRRRRR...', // 18
+    '...RRRRRRRRRR...', // 19
+    '...RRRRRRRRRR...', // 20
+    '...RRRR..RRRR...', // 21 leg split
+    '..RRRR....RRRR..', // 22
+    '..RRR......RRR..', // 23
+    '..RRR......RRR..', // 24
+    '..RRR......RRR..', // 25
     '...RR......RR...', // 26
     '...RR......RR...', // 27
     '...RR......RR...', // 28
@@ -331,29 +323,29 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
     '................', // 0
     '................', // 1
     '................', // 2
-    '................', // 3
-    '......RRRRR.....', // 4 hat
-    '.....RRRRRRRRR..', // 5 hat
-    '.....BBBSSBS....', // 6 face
-    '....BSBSSSBS.S..', // 7
-    '....BSBBSSSBSSS.', // 8
-    '....BBSSSSBBBB..', // 9
-    '......SSSSSSSS..', // 10 chin
-    '....RRSRRRRR....', // 11 leaning
-    '..RRRRSBBRRRRR..', // 12
-    '..RRRBBBBRRRSSS.', // 13
-    '..SS.BBBB.RRSSS.', // 14
-    '.....RRRRRR.SS..', // 15
-    '.....RRRRRR.....', // 16
-    '....RRRRRRRR....', // 17
+    '......RRRRR.....', // 3  hat
+    '.....RRRRRRRRR..', // 4  hat brim
+    '.....BBBSSBS....', // 5  hair
+    '....BSBSSSBS.S..', // 6  eyes
+    '....BSBBSSSBSSS.', // 7  nose
+    '....BBSSSSBBBB..', // 8  face
+    '......SSSSSSSS..', // 9  chin
+    '....RRSRRRRR....', // 10 leaning
+    '..RRRRSBBRRRRR..', // 11
+    '..RRRBBBBRRRSSS.', // 12
+    '..SS.BBBB.RRSSS.', // 13
+    '.....RRRRRR.SS..', // 14
+    '.....RRRRRR.....', // 15
+    '....RRRRRRRR....', // 16
+    '...RRRRRRRRRR...', // 17
     '...RRRRRRRRRR...', // 18
-    '...RRRR..RRRR...', // 19
-    '..RRRR....RRRR..', // 20
-    '..RRR......RRR..', // 21
-    '..RRR......RRR..', // 22
+    '...RRRRRRRRRR...', // 19
+    '...RRRRRRRRRR...', // 20
+    '...RRRR..RRRR...', // 21 leg split
+    '..RRRR....RRRR..', // 22
     '..RRR......RRR..', // 23
-    '...RR......RR...', // 24
-    '...RR......RR...', // 25
+    '..RRR......RRR..', // 24
+    '..RRR......RRR..', // 25
     '...RR......RR...', // 26
     '...RR......RR...', // 27
     '...RR......RR...', // 28
@@ -404,7 +396,7 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
 
   // ====== FIRE MARIO (same poses as big, R->F in body/legs for fire colors) ======
   // Helper: convert big Mario pixel art to fire Mario by swapping R->F below hat rows
-  function toFire(pixels: string[], firstBodyRow = 6): string[] {
+  function toFire(pixels: string[], firstBodyRow = 5): string[] {
     return pixels.map((row, i) => i < firstBodyRow ? row : row.replace(/R/g, 'F'));
   }
 
@@ -413,53 +405,44 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
 
   const fireStand = createSprite(16, 32, [
     ...fireUpperBody,
-    '...FFFFFFFFFF...', // 18
-    '...FFFF..FFFF...', // 19
-    '...FFF....FFF...', // 20
-    '...FFF....FFF...', // 21
-    '...FFF....FFF...', // 22
-    '....FF....FF....', // 23
-    '....FF....FF....', // 24
-    '....FF....FF....', // 25
-    '....FF....FF....', // 26
-    '....FF....FF....', // 27
-    '....FF....FF....', // 28
-    '...BBB...BBB....', // 29
-    '..BBBB...BBBB...', // 30
-    '..BBB.....BBB...', // 31
+    '...FFFF..FFFF...', // 21 leg split
+    '...FFF....FFF...', // 22 upper legs
+    '...FFF....FFF...', // 23 legs
+    '...FFF....FFF...', // 24 legs
+    '....FF....FF....', // 25 shins
+    '....FF....FF....', // 26 shins
+    '....FF....FF....', // 27 shins
+    '....FF....FF....', // 28 ankles
+    '...BBB...BBB....', // 29 shoes
+    '..BBBB...BBBB...', // 30 shoes
+    '..BBB.....BBB...', // 31 shoes
   ], fmColors);
   sprites.set('fire_stand_right', fireStand);
   sprites.set('fire_stand_left', flipHorizontal(fireStand));
 
   const fireWalk1 = createSprite(16, 32, [
     ...fireUpperBody,
-    '...FFFFFFFFFF...', // 18
-    '...FFFF..FFFF...', // 19
-    '..FFFF....FFFF..', // 20
-    '..FFF......FFF..', // 21
-    '..FFF......FFF..', // 22
+    '...FFFF..FFFF...', // 21 leg split
+    '..FFFF....FFFF..', // 22 wide stride
     '..FFF......FFF..', // 23
-    '...FF......FF...', // 24
-    '...FF......FF...', // 25
+    '..FFF......FFF..', // 24
+    '..FFF......FFF..', // 25
     '...FF......FF...', // 26
     '...FF......FF...', // 27
     '...FF......FF...', // 28
-    '..BBB.....BBB...', // 29
-    '.BBBB.....BBBB..', // 30
-    '.BBB.......BBB..', // 31
+    '..BBB.....BBB...', // 29 shoes
+    '.BBBB.....BBBB..', // 30 shoes
+    '.BBB.......BBB..', // 31 shoes
   ], fmColors);
   sprites.set('fire_walk1_right', fireWalk1);
   sprites.set('fire_walk1_left', flipHorizontal(fireWalk1));
 
   const fireWalk2 = createSprite(16, 32, [
     ...fireUpperBody,
-    '...FFFFFFFFFF...', // 18
-    '....FFFFFFFF....', // 19
-    '.....FFFFFF.....', // 20
-    '.....FFFFFF.....', // 21
-    '.....FF..FF.....', // 22
-    '.....FF..FF.....', // 23
-    '.....FF..FF.....', // 24
+    '...FFFFFFFFFF...', // 21
+    '....FFFFFFFF....', // 22 narrowing
+    '.....FFFFFF.....', // 23
+    '.....FF..FF.....', // 24 legs together
     '.....FF..FF.....', // 25
     '.....FF..FF.....', // 26
     '.....FF..FF.....', // 27
@@ -473,16 +456,13 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
 
   const fireWalk3 = createSprite(16, 32, [
     ...fireUpperBody,
-    '...FFFFFFFFFF...', // 18
-    '...FFFF..FFFF...', // 19
-    '..FFFF...FFFF...', // 20
-    '..FFF.....FFF...', // 21
-    '..FFF.....FFF...', // 22
+    '...FFFF..FFFF...', // 21
+    '..FFFF...FFFF...', // 22 offset stride
     '..FFF.....FFF...', // 23
-    '..FF.......FF...', // 24
-    '..FF.......FF...', // 25
-    '..FF......FF....', // 26
-    '..FF......FF....', // 27
+    '..FFF.....FFF...', // 24
+    '..FFF.....FFF...', // 25
+    '..FF.......FF...', // 26
+    '..FF.......FF...', // 27
     '..FF......FF....', // 28
     '.BBB.....BBB....', // 29
     'BBBB....BBBB....', // 30
@@ -495,29 +475,29 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
     '................', // 0
     '................', // 1
     '................', // 2
-    '................', // 3
-    '......RRRRR.....', // 4 hat (R = white)
-    '.....RRRRRRRRR..', // 5 hat
-    '.....BBBSSBS....', // 6 face
-    '....BSBSSSBS.S..', // 7
-    '....BSBBSSSBSSS.', // 8
-    '....BBSSSSBBBB..', // 9
-    '....SSFFSSSFFR..', // 10 arm up (F = fire red)
-    '...FFFSFFFFFFBB.', // 11
-    '..FFFFSSSFFFFSB.', // 12
-    '..FFFSSSSSSFFBB.', // 13
-    '..FF.SSSSS..B...', // 14
-    '.......FFFF.....', // 15
+    '......RRRRR.....', // 3  hat (R = white)
+    '.....RRRRRRRRR..', // 4  hat brim
+    '.....BBBSSBS....', // 5  hair
+    '....BSBSSSBS.S..', // 6  eyes
+    '....BSBBSSSBSSS.', // 7  nose
+    '....BBSSSSBBBB..', // 8  face
+    '....SSFFSSSFFR..', // 9  arm up (F = fire red)
+    '...FFFSFFFFFFBB.', // 10
+    '..FFFFSSSFFFFSB.', // 11
+    '..FFFSSSSSSFFBB.', // 12
+    '..FF.SSSSS..B...', // 13
+    '.......FFFF.....', // 14
+    '.....FFFFFF.....', // 15
     '....FFFFFFFF....', // 16
     '...FFFFFFFFFF...', // 17
-    '...FFFF..FFFF...', // 18
-    '..FFFF....FFFF..', // 19
-    '..FFF......FFF..', // 20
-    '..FFF......FFF..', // 21
-    '..FFF......FFF..', // 22
-    '...FF......FF...', // 23
-    '...FF......FF...', // 24
-    '...FF......FF...', // 25
+    '...FFFFFFFFFF...', // 18
+    '...FFFFFFFFFF...', // 19
+    '...FFFFFFFFFF...', // 20
+    '...FFFF..FFFF...', // 21 leg split
+    '..FFFF....FFFF..', // 22
+    '..FFF......FFF..', // 23
+    '..FFF......FFF..', // 24
+    '..FFF......FFF..', // 25
     '...FF......FF...', // 26
     '...FF......FF...', // 27
     '...FF......FF...', // 28
@@ -532,29 +512,29 @@ export function createMarioSprites(): Map<string, HTMLCanvasElement> {
     '................', // 0
     '................', // 1
     '................', // 2
-    '................', // 3
-    '......RRRRR.....', // 4 hat
-    '.....RRRRRRRRR..', // 5 hat
-    '.....BBBSSBS....', // 6
-    '....BSBSSSBS.S..', // 7
-    '....BSBBSSSBSSS.', // 8
-    '....BBSSSSBBBB..', // 9
-    '......SSSSSSSS..', // 10
-    '....FFSFFFFF....', // 11 leaning
-    '..FFFFSBBFFFFF..', // 12
-    '..FFFBBBBFFFSSS.', // 13
-    '..SS.BBBB.FFSSS.', // 14
-    '.....FFFFFF.SS..', // 15
-    '.....FFFFFF.....', // 16
-    '....FFFFFFFF....', // 17
+    '......RRRRR.....', // 3  hat (R = white)
+    '.....RRRRRRRRR..', // 4  hat brim
+    '.....BBBSSBS....', // 5
+    '....BSBSSSBS.S..', // 6
+    '....BSBBSSSBSSS.', // 7
+    '....BBSSSSBBBB..', // 8
+    '......SSSSSSSS..', // 9  chin
+    '....FFSFFFFF....', // 10 leaning (F = fire red)
+    '..FFFFSBBFFFFF..', // 11
+    '..FFFBBBBFFFSSS.', // 12
+    '..SS.BBBB.FFSSS.', // 13
+    '.....FFFFFF.SS..', // 14
+    '.....FFFFFF.....', // 15
+    '....FFFFFFFF....', // 16
+    '...FFFFFFFFFF...', // 17
     '...FFFFFFFFFF...', // 18
-    '...FFFF..FFFF...', // 19
-    '..FFFF....FFFF..', // 20
-    '..FFF......FFF..', // 21
-    '..FFF......FFF..', // 22
+    '...FFFFFFFFFF...', // 19
+    '...FFFFFFFFFF...', // 20
+    '...FFFF..FFFF...', // 21
+    '..FFFF....FFFF..', // 22
     '..FFF......FFF..', // 23
-    '...FF......FF...', // 24
-    '...FF......FF...', // 25
+    '..FFF......FFF..', // 24
+    '..FFF......FFF..', // 25
     '...FF......FF...', // 26
     '...FF......FF...', // 27
     '...FF......FF...', // 28
