@@ -13,7 +13,7 @@ export class TitleState implements GameState {
     this.blinkTimer = 0;
   }
 
-  exit(_game: Game): void {}
+  exit(_game: Game): void { }
 
   update(game: Game, dt: number): void {
     this.blinkTimer += dt;
@@ -39,10 +39,10 @@ export class TitleState implements GameState {
     // Title
     ctx.fillStyle = '#E44000';
     ctx.fillText('SUPER', SCREEN_WIDTH / 2, 60);
-    ctx.fillText('MARIO BROS.', SCREEN_WIDTH / 2, 80);
+    ctx.fillText('PLUMBER BROS.', SCREEN_WIDTH / 2, 80);
 
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('1985 NINTENDO', SCREEN_WIDTH / 2, 110);
+    ctx.fillText('2026 CLAUDE', SCREEN_WIDTH / 2, 110);
 
     // Game options
     ctx.fillText('1 PLAYER GAME', SCREEN_WIDTH / 2, 150);

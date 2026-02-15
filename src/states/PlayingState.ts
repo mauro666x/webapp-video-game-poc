@@ -27,7 +27,7 @@ import {
 import { SoundEffects } from '../audio/SoundEffects';
 import { MusicPlayer } from '../audio/MusicPlayer';
 import { AudioManager } from '../audio/AudioManager';
-import { createMarioSprites } from '../rendering/sprites/MarioSprites';
+import { createPlumberLikeSprites } from '../rendering/sprites/MarioSprites';
 import { createEnemySprites } from '../rendering/sprites/EnemySprites';
 import { createItemSprites } from '../rendering/sprites/ItemSprites';
 import { createTileSprites } from '../rendering/sprites/TileSprites';
@@ -58,7 +58,7 @@ export class PlayingState implements GameState {
     this.tileSprites = createTileSprites();
     this.enemySprites = createEnemySprites();
     this.itemSprites = createItemSprites();
-    this.marioSprites = createMarioSprites();
+    this.marioSprites = createPlumberLikeSprites();
 
     // Setup audio
     this.audioManager = new AudioManager();
@@ -95,7 +95,7 @@ export class PlayingState implements GameState {
   update(game: Game, dt: number): void {
     // Start audio on first input
     if (!this.audioStarted && (game.input.isDown('ArrowLeft') || game.input.isDown('ArrowRight') ||
-        game.input.isDown('Space') || game.input.isDown('KeyA') || game.input.isDown('KeyD'))) {
+      game.input.isDown('Space') || game.input.isDown('KeyA') || game.input.isDown('KeyD'))) {
       this.audioStarted = true;
       this.music.start();
     }
@@ -188,9 +188,9 @@ export class PlayingState implements GameState {
 
     // Flagpole check
     if (this.player.x + this.player.width >= game.level.flagX + 6 &&
-        this.player.x <= game.level.flagX + 10 &&
-        game.level.flagX > 0 &&
-        !this.player.flagSliding) {
+      this.player.x <= game.level.flagX + 10 &&
+      game.level.flagX > 0 &&
+      !this.player.flagSliding) {
       this.startFlagSlide(game);
     }
 
@@ -498,7 +498,7 @@ export class PlayingState implements GameState {
     for (const entity of game.level.entities) {
       if (entity instanceof Enemy && entity.active && entity.alive && !entity.stomped) {
         if (entity.bottom >= blockTop - 2 && entity.bottom <= blockTop + 2 &&
-            entity.right > blockLeft && entity.left < blockLeft + TILE_SIZE) {
+          entity.right > blockLeft && entity.left < blockLeft + TILE_SIZE) {
           entity.alive = false;
           entity.removeFlag = true;
           this.sfx.kick();
